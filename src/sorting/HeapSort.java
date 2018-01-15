@@ -19,14 +19,16 @@ public class HeapSort {
     }
 
     public void sort(int[] array) {
+        HeapAlgorithms.Heap heap = new HeapAlgorithms.Heap(array);
         int temp;
         HeapAlgorithms helper = new HeapAlgorithms();
-        helper.buildMaxHeap(array);
-        for (int i = array.length - 1; i > 0; i--) {
-            temp = array[0];
-            array[0] = array[i];
-            array[i] = temp;
-            helper.maxHeapify(array, 0, i - 1);
+        helper.buildMaxHeap(heap);
+        for (int i = heap.length() - 1; i > 0; i--) {
+            temp = heap.get(0);
+            heap.set(0, heap.get(i));
+            heap.set(i, temp);
+            heap.heapSize--;
+            helper.maxHeapify(heap, 0);
         }
     }
 }

@@ -8,54 +8,47 @@ package dataStructuresRelated;
 public class HeapAlgorithms {
     public static void main(String[] args) {
         int[] array = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
+        Heap heap = new Heap(array);
         HeapAlgorithms heapAlgorithms = new HeapAlgorithms();
-        heapAlgorithms.buildMaxHeap(array);
+        heapAlgorithms.buildMaxHeap(heap);
 
-        for (int i : array) {
-            System.out.print(i + "\t");
-        }
+        heap.print();
     }
 
     /**
-     * This method transform any array into a max heap
+     * This method transform any heap into a max heap
      *
-     * @param array the array to be transformed
+     * @param heap the heap to be transformed
      */
-    public void buildMaxHeap(int[] array) {
-        for (int i = array.length / 2 - 1; i >= 0; i--) {
-            maxHeapify(array, i, array.length - 1);
+    public void buildMaxHeap(Heap heap) {
+        for (int i = heap.length() / 2 - 1; i >= 0; i--) {
+            maxHeapify(heap, i);
         }
     }
 
     /**
      * This method is used to maintain the property of a max heap
      *
-     * @param array the array that represents the heap
-     * @param index the position of the node which may be "floated down", so that
-     *              the subtree at position [index] obeys the max heap property
-     * @param end the last position that is taken into account of this maintenance.
-     *            If this parameter is larger than the last index of [array] or smaller
-     *            than 0, an exception will be thrown
+     * @param heap  the heap whose a subtree that needs to obey the max heap property
+     * @param index the position of the node in the [heap] which may be "floated down",
+     *              so that the subtree at position [index] obeys the max heap property
      */
-    public void maxHeapify(int[] array, int index, int end) {
-        if (end >= array.length || end < 0) {
-            throw new IndexOutOfBoundsException();
-        }
+    public void maxHeapify(Heap heap, int index) {
         int left = leftIndex(index);
         int right = rightIndex(index);
         int largest = index;
-        if (left <= end && array[left] > array[index]) {
+        if (left < heap.heapSize && heap.get(left) > heap.get(largest)) {
             largest = left;
         }
-        if (right <= end && array[right] > array[largest]) {
+        if (right < heap.heapSize && heap.get(right) > heap.get(largest)) {
             largest = right;
         }
 
         if (largest != index) {
-            int temp = array[index];
-            array[index] = array[largest];
-            array[largest] = temp;
-            maxHeapify(array, largest, end);
+            int temp = heap.get(index);
+            heap.set(index, heap.get(largest));
+            heap.set(largest, temp);
+            maxHeapify(heap, largest);
         }
     }
 
@@ -69,5 +62,43 @@ public class HeapAlgorithms {
 
     private int parentIndex(int index) {
         return (index - 1) / 2;
+    }
+
+    public static class Heap {
+        private int[] array;
+        public int heapSize;
+
+        public Heap(int[] array) {
+            if (array == null)
+                throw new NullPointerException("This constructor does not take `null` as a parameter");
+            this.array = array;
+            heapSize = array.length;
+        }
+
+        public int get(int position) {
+            if (position >= array.length || position < 0)
+                throw new IndexOutOfBoundsException(position > 0
+                        ? "The last index of the heap is " + (array.length - 1)
+                        : "position must not be negative");
+            return array[position];
+        }
+
+        public void set(int position, int value) {
+            if (position >= array.length || position < 0)
+                throw new IndexOutOfBoundsException(position > 0
+                        ? "The last index of the heap is " + (array.length - 1)
+                        : "position must not be negative");
+            array[position] = value;
+        }
+
+        public int length() {
+            return array.length;
+        }
+
+        public void print() {
+            for (int i : array) {
+                System.out.print(i + "\t");
+            }
+        }
     }
 }
