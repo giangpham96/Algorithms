@@ -1,6 +1,6 @@
 package problems;
 
-import com.company.sorting.MergeSort;
+import sorting.MergeSort;
 import search.BinarySearch;
 
 /**

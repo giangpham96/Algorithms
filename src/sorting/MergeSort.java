@@ -1,10 +1,12 @@
-package com.company.sorting;
+package sorting;
 
 import java.util.Random;
 
 /**
  * Merge sort, a sorting algorithm which outperforms insertion sort and selection sort
  * if the array size is large enough
+ * Worst-case performance O(n lg n)
+ * Best-case performance O(n lg n)
  */
 public class MergeSort {
 

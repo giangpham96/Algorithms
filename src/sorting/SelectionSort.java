@@ -1,7 +1,9 @@
-package com.company.sorting;
+package sorting;
 
 /**
  * Selection sort, an efficient algorithm for sorting a small number of elements
+ * Worst-case performance O(n^2)
+ * Best-case performance O(n^2) (distinct keys)
  */
 
 public class SelectionSort {
