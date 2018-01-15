@@ -9,6 +9,12 @@ public class Heap {
     private int[] array;
     public int heapSize;
 
+    public static void main(String[] args) {
+        int[] array = {5, 13, 2, 25, 7, 17, 20, 8, 4};
+        Heap heap = new Heap(array);
+        heap.print();
+    }
+
     public Heap(int[] array) {
         if (array == null)
             throw new NullPointerException("This constructor does not take `null` as a parameter");
@@ -52,6 +58,81 @@ public class Heap {
         }
     }
 
+    /**
+     * This method removes the maximum value inside the heap before returning it
+     *
+     * @return the maximum value inside the heap
+     */
+    public int extractMax() {
+        if (heapSize < 1) {
+            throw new RuntimeException("Heap underflow");
+        }
+        int max = get(0);
+        set(0, get(heapSize - 1));
+        heapSize--;
+        maxHeapify(0);
+        return max;
+    }
+
+    /**
+     * This method increases the key of a specific node.
+     * After that, the heap is reordered to maintain the max heap property.
+     * If the position is greater than or equal to the heapsize or smaller than 0,
+     * an exception will be thrown
+     * If the new key is smaller than the old key, an exception will be thrown
+     *
+     * @param position the position of a node whose key is increased
+     * @param key the new key of the node at index [position]
+     */
+    public void increaseKey(int position, int key) {
+        if (position >= heapSize || position < 0)
+            throw new IndexOutOfBoundsException(position > 0
+                    ? "The size of the heap is " + (heapSize)
+                    : "position must not be negative");
+        if (key< get(position))
+            throw new RuntimeException("New key is smaller than the current key");
+        set(position, key);
+
+        int temp;
+        while (position > 0 && get(parentIndex(position)) < get(position)) {
+            temp = get(position);
+            set(position, get(parentIndex(position)));
+            set(parentIndex(position), temp);
+            position = parentIndex(position);
+        }
+    }
+
+    /**
+     * This method adds a new node to the heap if it is not full
+     *
+     * @param key the key of the new node
+     */
+    public void insert(int key) {
+        if(heapSize == array.length)
+            return;
+        heapSize++;
+        set(heapSize - 1, Integer.MIN_VALUE);
+        increaseKey(heapSize - 1, key);
+    }
+    public int maximum() {
+        if (array.length == 0)
+            return 0;
+        return get(0);
+    }
+
+    private int leftIndex(int index) {
+        return 2 * (index + 1) - 1;
+    }
+
+    private int rightIndex(int index) {
+        return 2 * (index + 1);
+    }
+
+    private int parentIndex(int index) {
+        return (index - 1) / 2;
+    }
+
+
     public int get(int position) {
         if (position >= array.length || position < 0)
             throw new IndexOutOfBoundsException(position > 0
@@ -76,17 +157,5 @@ public class Heap {
         for (int i : array) {
             System.out.print(i + "\t");
         }
-    }
-
-    private int leftIndex(int index) {
-        return 2 * (index + 1) - 1;
-    }
-
-    private int rightIndex(int index) {
-        return 2 * (index + 1);
-    }
-
-    private int parentIndex(int index) {
-        return (index - 1) / 2;
     }
 }
