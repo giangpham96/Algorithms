@@ -1,4 +1,4 @@
-package problems;
+package others;
 
 /**
  * find a maximum sub array of a given array

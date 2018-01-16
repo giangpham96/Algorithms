@@ -1,10 +1,10 @@
-package problems;
+package others;
 
 import sorting.MergeSort;
 import search.BinarySearch;
 
 /**
- * answers to problems from 'Introduction to algorithms' third edition
+ * answers to some problems from 'Introduction to algorithms' third edition
  */
 
 public class IntroductionToAlgorithms {

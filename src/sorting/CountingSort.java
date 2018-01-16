@@ -1,12 +1,10 @@
 package sorting;
 /**
  * Counting sort, an efficient sorting algorithm for
- * an array contains all positive keys
+ * an array contains integer elements in the range 0 to k
  *
  * Worst-case performance O(n + k)
  * Best-case performance O(n + k)
- * k is the number of distinct keys inside the array.
- * When k is O(n), the algorithm takes O(n) time to finish
  */
 public class CountingSort {
 

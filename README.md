@@ -18,7 +18,11 @@ This repository will be update frequently.
 ## Algorithms related to Data Structure
 * Heap
 
-## Problems
+## Others
+
+### Recursion
+* Tower of Hanoi
+
 ### Problems from "Introduction to Algorithms" third edition
 * **2.3-7** <br/>
 Describe a O(n lg n)-time algorithm that, given a set S of n integers and another integer x, determines whether or not there exist two elements in S whose sum is exactly x.
