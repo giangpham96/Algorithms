@@ -22,6 +22,7 @@ This repository will be update frequently.
 
 ### Recursion
 * Tower of Hanoi
+* Exponentiation
 
 ### Problems from "Introduction to Algorithms" third edition
 * **2.3-7** <br/>
