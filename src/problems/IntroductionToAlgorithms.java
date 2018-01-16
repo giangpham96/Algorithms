@@ -21,7 +21,7 @@ public class IntroductionToAlgorithms {
     private static boolean e2_3__7(int[] S, int x) {
 
         MergeSort mergeSort = new MergeSort();
-        S = mergeSort.sort(S);
+        mergeSort.sort(S);
 
         BinarySearch binarySearch = new BinarySearch();
 

@@ -1,6 +1,6 @@
 # Algorithms
 
-My collection of algorithms that I have learned and implemented. <br/>
+Collection of algorithms that I have learned and implemented. <br/>
 All algorithms are written in Java.<br/>
 This repository will be update frequently.
 
@@ -9,6 +9,7 @@ This repository will be update frequently.
 * Selection Sort
 * Merge Sort
 * Heap Sort
+* Quick Sort
 
 ## Searching Algorithms
 * Binary Search

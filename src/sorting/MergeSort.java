@@ -24,18 +24,17 @@ public class MergeSort {
         }
 
         System.out.print("\n");
-        int[] sorted = (new MergeSort()).sort(arr);
+        (new MergeSort()).sort(arr);
 
         System.out.print("non-increasing sequence: " + "\t");
-        for (int i : sorted) {
+        for (int i : arr) {
             System.out.print(i);
             System.out.print("\t");
         }
     }
 
-    public int[] sort(int[] unsorted) {
+    public void sort(int[] unsorted) {
         mergeSort(unsorted, 0, unsorted.length - 1);
-        return unsorted;
     }
 
     private void mergeSort(int[] unsorted, int begin, int end) {
