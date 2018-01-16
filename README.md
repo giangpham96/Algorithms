@@ -10,6 +10,7 @@ This repository will be update frequently.
 * Merge Sort
 * Heap Sort
 * Quick Sort
+* Counting Sort
 
 ## Searching Algorithms
 * Binary Search
