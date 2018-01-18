@@ -36,6 +36,9 @@ Describe a O(n lg n)-time algorithm that, given a set S of n integers and anothe
 Consider a 2^n x 2^n chess board with one arbitrarily chosen square removed
 Describe and analyze an algorithm to tile the chessboard without gaps or overlaps
 by L-shaped pieces, each composed of 3 squares
+* **3.1-a** <br/>
+Describe an algorithm to give the length of the longest common subsequence
+of 2 arbitrary arrays A[0..n] and B[0..m]
 
 ### Other Problems
 * Maximum Subarray
