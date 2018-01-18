@@ -22,6 +22,9 @@ This repository will be update frequently.
 * Tower of Hanoi
 * Exponentiation
 
+## Backtracking Algorithms
+* n Queens problem
+
 ## Others
 
 ### Problems from "Introduction to Algorithms" third edition
