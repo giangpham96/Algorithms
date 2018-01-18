@@ -1,6 +1,6 @@
 package others;
 
-import others.recursion.Exponentiation;
+import recursion.Exponentiation;
 
 public class AlgorithmJE {
 

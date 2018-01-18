@@ -1,4 +1,4 @@
-package others.recursion;
+package recursion;
 
 public class Exponentiation {
     public static void main(String[] args) {

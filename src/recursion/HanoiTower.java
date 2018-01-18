@@ -1,4 +1,4 @@
-package others.recursion;
+package recursion;
 
 /**
  * The Tower of Hanoi is a mathematical game or puzzle. It consists of three rods and a number of disks of
