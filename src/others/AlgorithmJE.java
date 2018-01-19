@@ -6,8 +6,10 @@ public class AlgorithmJE {
 
     public static void main(String[] args) {
 //        e1_3(3, 4, 7);
-        e3_1_a(new int[]{0, 2, 3, 5, 7, 11, 12, 16, 29, 4, 10, 5},
-                new int[]{1, 2, 3, 4, 2, 3, 5, 7, 11, 12, 16, 29, 10, 52, 3, 5, 7, 11, 12, 16, 29});
+//        e3_1_a(new int[]{12, 14, 13, 23, 29, 44, 13},
+//                new int[]{10, 12, 12, 14, 13, 23, 22, 29, 44, 13});
+        e3_1_b(new int[]{1, 4, 9, 12, 14, 33, 13, 23, 99, 29, 44, 13},
+                new int[]{10, 12, 12, 14, 13, 23, 22, 29, 44, 13});
     }
 
     /*
@@ -146,8 +148,8 @@ public class AlgorithmJE {
 
     Answer: Assume i & j are where A[i] = B[j], the longest common subsequence of
     A[0..n] and B[0..m] is the longest common subsequence of A[i..n] and B[j..m].
-    The longest common subsequence of A[i..n] and B[j..m] is either the longest common
-    subsequence of A[i+1..n] and B[j+1..m] or A[i..i+k] = B[j..j+k]
+    The longest common subsequence of A[i..n] and B[j..m] is the longest common
+    subsequence of A[i+1..n] and B[j+1..m]
      */
     private static void e3_1_a(int[] A, int[] B) {
         int ls = longestCommonSubsequence(A, B, 0, 0, 0);
@@ -158,17 +160,29 @@ public class AlgorithmJE {
         if (startA == A.length || startB == B.length)
             return length;
 
-        int temp;
+        int len = length, temp;
         for (int i = startA; i < A.length; i++) {
             for (int j = startB; j < B.length; j++) {
                 if (A[i] == B[j]) {
-                    temp = longestCommonSubsequence(A, B, i + 1, j + 1,
-                            (i == startA && j == startB) ? length + 1 : 1);
-                    if (length < temp)
-                        length = temp;
+                    temp = longestCommonSubsequence(A, B, i + 1, j + 1, length + 1);
+                    if (len < temp)
+                        len = temp;
                 }
             }
         }
-        return length;
+        return len;
+    }
+
+    /*
+    3.1b
+    Describe an algorithm to give the length of the shortest common supersequence
+    of 2 arbitrary arrays A[0..n] and B[0..m]
+
+    Answer: scs.length = m + n - lcs.length
+     */
+
+    private static void e3_1_b(int[] A, int[] B) {
+        int length =  A.length + B.length - longestCommonSubsequence(A, B, 0, 0, 0);
+        System.out.println(length);
     }
 }

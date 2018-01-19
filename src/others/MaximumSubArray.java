@@ -10,8 +10,7 @@ package others;
 public class MaximumSubArray {
     public static void main(String[] args) {
         MaximumSubArray maximumSubArray = new MaximumSubArray();
-        int[] arr = new int[]{13, -3, 14, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7
-        };
+        int[] arr = new int[]{13, -3, 14, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7};
         SubArrayInfo linear = maximumSubArray.linear(arr);
         System.out.print("linear:\t" + linear.sum);
 
